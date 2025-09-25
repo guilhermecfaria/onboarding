@@ -601,11 +601,6 @@ useEffect(() => {
                     required
                     max={new Date().toISOString().split('T')[0]}
                     min="1900-01-01"
-                    style={{
-                      position: 'relative',
-                      zIndex: 1,
-                      colorScheme: 'light'
-                    }}
                     className={errosCampos.dataNascimento ? 'input-erro' : ''}
                   />
                   {errosCampos.dataNascimento && (
@@ -622,10 +617,6 @@ useEffect(() => {
                     autoComplete="off"
                     onChange={handleInputChange}
                     required
-                    style={{
-                      position: 'relative',
-                      zIndex: 1
-                    }}
                     className={errosCampos.genero ? 'input-erro' : ''}
                   >
                     <option value="">Selecione</option>
