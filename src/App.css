@@ -123,6 +123,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow: auto;
 }
 
 .modal-container {
@@ -136,12 +137,12 @@ body {
   max-height: 100vh;
   display: flex;
   flex-direction: column;
-  position: flex;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Botões do modal na parte inferior */
@@ -232,6 +233,28 @@ input, select, textarea {
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   color: #333;
   background-color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for dropdown positioning */
+select {
+  position: relative;
+  z-index: auto;
+}
+
+/* Fix for date input */
+input[type="date"] {
+  position: relative;
+  z-index: 1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
 }
 
 input::placeholder, select::placeholder, textarea::placeholder {
@@ -254,6 +277,26 @@ label {
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix dropdown container overflow */
+.form-group select {
+  position: relative;
+  z-index: auto;
+}
+
+/* Ensure proper stacking for form containers */
+.card, .modal-container, .app-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Fix for form containers to prevent dropdown displacement */
+form, .questionnaire-form, .dados-pessoais-form {
+  position: relative;
+  overflow: visible;
 }
 
 button {
