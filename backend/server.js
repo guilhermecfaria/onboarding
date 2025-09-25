@@ -32,8 +32,8 @@ app.use(cors({
 
 app.use(express.json()); // Permite receber JSON no body das requisições
 
-// Rota de teste
-app.get("/", (req, res) => {
+// Rota de teste da API (movida para /api/health)
+app.get("/api/health", (req, res) => {
   res.send("API do meu SaaS está rodando!");
 });
 
