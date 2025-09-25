@@ -1011,68 +1011,107 @@ const GerenteDashboard = () => {
             >
               ×
             </button>
-            <h3 className="text-xl font-bold mb-4" style={{ paddingRight: '40px', paddingTop: '10px' }}>
+            <h3 style={{ 
+              fontSize: '1.25rem', 
+              fontWeight: 'bold', 
+              marginBottom: '1rem',
+              paddingRight: '40px', 
+              paddingTop: '10px',
+              color: '#333'
+            }}>
               Editar Questionário - {questionarioEdicao.cliente.nome}
             </h3>
             
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold mb-3">Teste de Tiro</h4>
-              <div className="space-y-3">
-                <label className="flex items-center space-x-2">
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h4 style={{ 
+                fontSize: '1.125rem', 
+                fontWeight: '600', 
+                marginBottom: '0.75rem',
+                color: '#333'
+              }}>
+                Teste de Tiro
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <input
                     type="checkbox"
                     checked={testeTiro.checkbox1}
                     onChange={(e) => setTesteTiro(prev => ({ ...prev, checkbox1: e.target.checked }))}
-                    className="w-4 h-4"
+                    style={{ width: '16px', height: '16px' }}
                   />
-                  <span>1</span>
+                  <span style={{ fontSize: '0.875rem', color: '#333' }}>1</span>
                 </label>
-                <label className="flex items-center space-x-2">
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <input
                     type="checkbox"
                     checked={testeTiro.checkbox2}
                     onChange={(e) => setTesteTiro(prev => ({ ...prev, checkbox2: e.target.checked }))}
-                    className="w-4 h-4"
+                    style={{ width: '16px', height: '16px' }}
                   />
-                  <span>2</span>
+                  <span style={{ fontSize: '0.875rem', color: '#333' }}>2</span>
                 </label>
-                <label className="flex items-center space-x-2">
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <input
                     type="checkbox"
                     checked={testeTiro.checkbox3}
                     onChange={(e) => setTesteTiro(prev => ({ ...prev, checkbox3: e.target.checked }))}
-                    className="w-4 h-4"
+                    style={{ width: '16px', height: '16px' }}
                   />
-                  <span>3</span>
+                  <span style={{ fontSize: '0.875rem', color: '#333' }}>3</span>
                 </label>
-                <label className="flex items-center space-x-2">
+                <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <input
                     type="checkbox"
                     checked={testeTiro.checkbox4}
                     onChange={(e) => setTesteTiro(prev => ({ ...prev, checkbox4: e.target.checked }))}
-                    className="w-4 h-4"
+                    style={{ width: '16px', height: '16px' }}
                   />
-                  <span>4</span>
+                  <span style={{ fontSize: '0.875rem', color: '#333' }}>4</span>
                 </label>
               </div>
             </div>
             
-            <div className="mb-6">
-              <h4 className="text-lg font-semibold mb-3">Comentário Livre</h4>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <h4 style={{ 
+                fontSize: '1.125rem', 
+                fontWeight: '600', 
+                marginBottom: '0.75rem',
+                color: '#333'
+              }}>
+                Comentário Livre
+              </h4>
               <textarea
                 value={comentarioLivre}
                 onChange={(e) => setComentarioLivre(e.target.value)}
                 placeholder="Digite seus comentários aqui..."
-                className="w-full p-3 border border-gray-300 rounded-lg resize-none"
+                style={{
+                  width: '100%',
+                  padding: '0.75rem',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '0.5rem',
+                  resize: 'none',
+                  fontFamily: 'inherit',
+                  fontSize: '0.875rem',
+                  color: '#333'
+                }}
                 rows="4"
               />
             </div>
             
-            <div className="flex gap-3">
+            <div style={{ display: 'flex', gap: '0.75rem' }}>
               <button
                 onClick={salvarEdicao}
-                className="flex-1 text-white py-2 px-4 rounded-lg"
-                style={{ backgroundColor: '#166534' }}
+                style={{ 
+                  flex: 1,
+                  color: 'white',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  backgroundColor: '#166534',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: '500'
+                }}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#14532d'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#166534'}
               >
@@ -1080,8 +1119,17 @@ const GerenteDashboard = () => {
               </button>
               <button
                 onClick={() => setShowEditModal(false)}
-                className="flex-1 text-white py-2 px-4 rounded-lg"
-                style={{ backgroundColor: '#166534' }}
+                style={{ 
+                  flex: 1,
+                  color: 'white',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.5rem',
+                  backgroundColor: '#166534',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: '500'
+                }}
                 onMouseEnter={(e) => e.target.style.backgroundColor = '#14532d'}
                 onMouseLeave={(e) => e.target.style.backgroundColor = '#166534'}
               >
