@@ -601,6 +601,18 @@ useEffect(() => {
                     required
                     max={new Date().toISOString().split('T')[0]}
                     min="1900-01-01"
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem',
+                      border: '1px solid #ddd',
+                      borderRadius: '4px',
+                      fontSize: '1rem',
+                      backgroundColor: '#fff',
+                      color: '#333',
+                      position: 'relative',
+                      zIndex: 999999,
+                      colorScheme: 'auto'
+                    }}
                     className={errosCampos.dataNascimento ? 'input-erro' : ''}
                   />
                   {errosCampos.dataNascimento && (
@@ -617,6 +629,17 @@ useEffect(() => {
                     autoComplete="off"
                     onChange={handleInputChange}
                     required
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem',
+                      border: '1px solid #ddd',
+                      borderRadius: '4px',
+                      fontSize: '1rem',
+                      backgroundColor: '#fff',
+                      color: '#333',
+                      position: 'relative',
+                      zIndex: 999999
+                    }}
                     className={errosCampos.genero ? 'input-erro' : ''}
                   >
                     <option value="">Selecione</option>
