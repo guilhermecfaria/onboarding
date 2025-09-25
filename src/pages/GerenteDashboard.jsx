@@ -828,11 +828,19 @@ const GerenteDashboard = () => {
                     <button
                       onClick={() => editarQuestionario(item)}
                       className="px-4 py-2 text-white rounded-lg text-sm font-medium transition-colors"
-                      style={{ backgroundColor: '#166534' }}
-                      onMouseEnter={(e) => e.target.style.backgroundColor = '#14532d'}
-                      onMouseLeave={(e) => e.target.style.backgroundColor = '#166534'}
+                      style={{ 
+                        backgroundColor: item.questionario.editado ? '#166534' : '#d97706',
+                        borderLeft: item.questionario.editado ? '4px solid #16a34a' : '4px solid #f59e0b'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.backgroundColor = item.questionario.editado ? '#14532d' : '#b45309';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.backgroundColor = item.questionario.editado ? '#166534' : '#d97706';
+                      }}
+                      title={item.questionario.editado ? 'Já foi editado' : 'Nunca foi editado'}
                     >
-                      Editar
+                      Editar {item.questionario.editado ? '✓' : '!'}
                     </button>
                     <button
                       onClick={() => exportarPDF(item, 'Relatório')}
