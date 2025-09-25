@@ -47,7 +47,7 @@ useEffect(() => {
     const fetchEstruturaQuestionario = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:5000/api/questionarios/estrutura');
+        const response = await axios.get('/api/questionarios/estrutura');
         setEstruturaQuestionario(response.data.data);
         
         // Inicializar o estado de respostas com base nas categorias
@@ -91,7 +91,7 @@ useEffect(() => {
   const fetchEstruturaQuestionario = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:5000/api/questionarios/estrutura');
+      const response = await axios.get('/api/questionarios/estrutura');
       setEstruturaQuestionario(response.data.data);
       
       // Inicializar o estado de respostas com base nas categorias
@@ -327,7 +327,7 @@ useEffect(() => {
       if (!clienteIdLocal) {
         console.log("Criando novo cliente...");
         // Criar um novo cliente
-        const clienteResponse = await axios.post('http://localhost:5000/api/clientes/registro', dadosPessoais);
+        const clienteResponse = await axios.post('/api/clientes/registro', dadosPessoais);
         console.log("Resposta da criação do cliente:", clienteResponse.data);
         
         // Usar setClienteIdLocal com o ID retornado
@@ -362,7 +362,7 @@ useEffect(() => {
       });
       
       // Usar clientId (variável local) ao invés de clienteIdLocal (state que pode não estar atualizado)
-      await axios.post(`http://localhost:5000/api/clientes/${clientId}/questionario`, {
+      await axios.post(`/api/clientes/${clientId}/questionario`, {
         respostas: respostasFormatadas
       });
       

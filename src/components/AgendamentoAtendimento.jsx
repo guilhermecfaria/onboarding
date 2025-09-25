@@ -20,7 +20,7 @@ const AgendamentoAtendimento = ({ clienteId, onAgendamentoSalvo, proximoAtendime
     try {
       setSalvando(true);
       
-      const response = await axios.put(`http://localhost:5000/api/clientes/${clienteId}/proximo-atendimento`, {
+      const response = await axios.put(`/api/clientes/${clienteId}/proximo-atendimento`, {
         data: dataAgendamento
       });
       

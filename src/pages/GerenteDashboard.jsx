@@ -39,7 +39,7 @@ const GerenteDashboard = () => {
       setLoading(true);
       
       // Buscar todos os clientes - mesmo método que funcionava antes
-      const response = await axios.get('http://localhost:5000/api/clientes?todos=true');
+      const response = await axios.get('/api/clientes?todos=true');
       console.log('Resposta da API de clientes:', response.data);
       
       if (response.data.success) {
@@ -55,7 +55,7 @@ const GerenteDashboard = () => {
         // Para cada cliente, buscar os dados do questionário
         const questionariosPromises = clientesComQuestionario.map(async (cliente) => {
           try {
-            const questionarioResponse = await axios.get(`http://localhost:5000/api/clientes/${cliente._id}/questionario`);
+            const questionarioResponse = await axios.get(`/api/clientes/${cliente._id}/questionario`);
             console.log(`Questionário carregado para ${cliente.nome}:`, questionarioResponse.data);
             
             return {
@@ -151,11 +151,11 @@ const GerenteDashboard = () => {
          id: questionarioEdicao.questionario._id,
          testeTiro,
          comentarioLivre,
-         url: `http://localhost:5000/api/questionarios/${questionarioEdicao.questionario._id}/editar`
+         url: `/api/questionarios/${questionarioEdicao.questionario._id}/editar`
        });
        
        const response = await axios.put(
-         `http://localhost:5000/api/questionarios/${questionarioEdicao.questionario._id}/editar`,
+         `/api/questionarios/${questionarioEdicao.questionario._id}/editar`,
          { testeTiro, comentarioLivre }
        );
       

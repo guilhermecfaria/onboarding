@@ -25,7 +25,7 @@ const DashboardProfissional = () => {
         setLoading(true);
         
         // Buscar clientes do profissional
-        const response = await axios.get('http://localhost:5000/api/clientes');
+        const response = await axios.get('/api/clientes');
         
         const clientesData = response.data.data || [];
         setClientes(clientesData);
@@ -97,7 +97,7 @@ const DashboardProfissional = () => {
     try {
       setLoading(true);
       
-      const response = await axios.get(`http://localhost:5000/api/clientes/${clienteId}/questionario`);
+      const response = await axios.get(`/api/clientes/${clienteId}/questionario`);
       
       if (response.data.success) {
         // Atualizar o cliente com os dados do questionário
@@ -226,7 +226,7 @@ const DashboardProfissional = () => {
         if (clienteAtualizado.atendimentos.length > index) {
           if (confirm("Deseja remover este atendimento?")) {
             // Remover no backend
-            await axios.delete(`http://localhost:5000/api/clientes/${clienteSelecionado._id}/atendimentos/ultimo`);
+            await axios.delete(`/api/clientes/${clienteSelecionado._id}/atendimentos/ultimo`);
             
             // Atualizar frontend
             clienteAtualizado.atendimentos.splice(index);
@@ -239,7 +239,7 @@ const DashboardProfissional = () => {
           const valorNumerico = parseInt(valorAtendimento) || 150;
           
           // Adicionar no backend
-          const response = await axios.post(`http://localhost:5000/api/clientes/${clienteSelecionado._id}/atendimentos`, {
+          const response = await axios.post(`/api/clientes/${clienteSelecionado._id}/atendimentos`, {
             observacoes: observacoesAtendimento || 'Atendimento registrado',
             valor: valorNumerico
           });
@@ -286,7 +286,7 @@ const DashboardProfissional = () => {
         setEnviandoDados(true);
         
         // Enviar o valor para o servidor
-        await axios.put(`http://localhost:5000/api/clientes/${clienteSelecionado._id}/valor-atendimento`, {
+        await axios.put(`/api/clientes/${clienteSelecionado._id}/valor-atendimento`, {
           valorAtendimento: valorNumerico
         });
         

@@ -17,20 +17,20 @@ function DiagnosticoAuth() {
         setError(null);
         
         // Verificar se o servidor está online
-        const serverResponse = await axios.get('http://localhost:5000/');
+        const serverResponse = await axios.get('/');
         setServerStatus({
           online: true,
           message: serverResponse.data
         });
         
         // Verificar status da autenticação
-        const authResponse = await axios.get('http://localhost:5000/api/auth/check', {
+        const authResponse = await axios.get('/api/auth/check', {
           headers: token ? { Authorization: `Bearer ${token}` } : {}
         });
         setAuthStatus(authResponse.data);
         
         // Verificar status do banco de dados
-        const dbResponse = await axios.get('http://localhost:5000/api/db-status');
+        const dbResponse = await axios.get('/api/db-status');
         setDbStatus(dbResponse.data);
         
       } catch (err) {
